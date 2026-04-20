@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build patches
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./gradlew build
+
+      - name: Get version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "rhyan57-patches ${{ github.ref_name }}"
+          body: |
+            ## Patch by rhyan57
+
+            ### Incluídos nesta versão:
+            - 🔐 GmsCore Support — login MicroG sem root
+            - 📥 Video Download — download de vídeos no player
+            - 🎨 Rhyan57 Announcement — tela de boas-vindas
+
+            ### Como usar no ReVanced Manager:
+            Adicione a URL do `patches.rvp` nas fontes do ReVanced Manager.
+
+            💬 Discord: https://dsc.gg/BetterStar
+          files: |
+            patches/build/libs/*.rvp
+            extensions/build/libs/*.rve
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
