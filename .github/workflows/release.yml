@@ -22,7 +22,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Generate Gradle Wrapper
-        run: gradle wrapper
+        run: gradle wrapper --gradle-version 8.7
 
       - name: Build patches
         env:
@@ -50,7 +50,7 @@ jobs:
             ### Como usar no ReVanced Manager:
             Adicione a URL do `patches.rvp` nas fontes do ReVanced Manager.
 
-            💬 Discord: https://dsc.gg/BetterStar
+            💬 Discord: https://discord.gg/rhyan57
           files: |
             patches/build/libs/*.rvp
             extensions/build/libs/*.rve
