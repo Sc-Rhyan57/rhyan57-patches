@@ -32,7 +32,7 @@ private val announcementResourcePatch = resourcePatch {
             addString("rhyan57_discord_button", "Discord")
             addString("rhyan57_dont_show_button", "Não mostrar mais")
             addString("rhyan57_close_button", "Fechar")
-            addString("rhyan57_discord_url", "https://discord.gg/rhyan57")
+            addString("rhyan57_discord_url", "https://dsc.gg/BetterStar")
             addString("rhyan57_patch_prefs", "rhyan57_patch_prefs")
             addString("rhyan57_shown_key", "rhyan57_announcement_shown")
         }
