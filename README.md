@@ -96,4 +96,4 @@ GPL-3.0 — veja [LICENSE](LICENSE)
 
 ## 💬 Contato
 
-Discord: [discord.gg/rhyan57](https://discord.gg/rhyan57)
+Discord: [discord.gg/rhyan57](https://dsc.gg/BetterStar)
