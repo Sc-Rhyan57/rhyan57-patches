@@ -1,0 +1,11 @@
+[versions]
+revanced-patcher = "21.0.0"
+android = "4.1.1.4"
+kotlin = "2.0.21"
+
+[libraries]
+revanced-patcher = { module = "app.revanced:revanced-patcher", version.ref = "revanced-patcher" }
+android = { module = "com.google.android:android", version.ref = "android" }
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
